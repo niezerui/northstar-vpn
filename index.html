@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#07192b" />
+    <title>Northstar · 安全连接</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#home" aria-label="Northstar 首页"><i></i>northstar</a>
+        <div class="plan"><span></span>PRO · 至 2027</div>
+        <button class="avatar" aria-label="账户设置">N</button>
+      </header>
+
+      <section id="home" class="connection-view" aria-live="polite">
+        <p class="eyebrow">私密网络</p>
+        <h1 id="status-title">准备连接</h1>
+        <p id="status-copy" class="status-copy">选择一个节点，保护你的网络连接。</p>
+
+        <div class="orb-wrap">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <button id="connect-button" class="connect-button" aria-label="开始连接">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v10M5.6 5.6a9 9 0 1 0 12.8 0"/></svg>
+            <span id="button-label">连接</span>
+          </button>
+        </div>
+
+        <div class="active-server" id="active-server">
+          <span class="flag">🇺🇸</span>
+          <div><strong id="server-name">美国 · 洛杉矶</strong><small id="server-meta">推荐节点 · 28 ms</small></div>
+          <button id="change-server" class="text-button">更换</button>
+        </div>
+
+        <div class="stats">
+          <div><small>会话时长</small><strong id="duration">00:00:00</strong></div>
+          <div><small>已保护流量</small><strong id="traffic">0 MB</strong></div>
+          <div><small>协议</small><strong>WireGuard<sup>®</sup></strong></div>
+        </div>
+      </section>
+
+      <section id="locations" class="locations-section">
+        <div class="section-heading"><div><p class="eyebrow">全球节点</p><h2>选择目的地</h2></div><button id="auto-select" class="auto-button">✦ 自动选择</button></div>
+        <label class="search"><span>⌕</span><input id="search-input" type="search" placeholder="搜索国家或城市" autocomplete="off" /></label>
+        <div id="server-list" class="server-list"></div>
+      </section>
+
+      <section id="settings" class="settings-section">
+        <p class="eyebrow">连接偏好</p><h2>为你自动处理复杂设置</h2>
+        <div class="setting-card"><div><strong>自动连接</strong><small>使用不安全 Wi‑Fi 时自动启用保护</small></div><button class="switch is-on" data-setting="auto" aria-pressed="true"><i></i></button></div>
+        <div class="setting-card"><div><strong>网络锁</strong><small>连接中断时停止网络流量</small></div><button class="switch is-on" data-setting="lock" aria-pressed="true"><i></i></button></div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="主导航">
+      <a class="nav-link active" href="#home"><span>◉</span>连接</a>
+      <a class="nav-link" href="#locations"><span>◎</span>节点</a>
+      <a class="nav-link" href="#settings"><span>⚙</span>设置</a>
+    </nav>
+    <div id="toast" class="toast" role="status"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
